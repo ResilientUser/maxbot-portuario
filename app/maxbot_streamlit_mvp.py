@@ -210,7 +210,7 @@ with st.sidebar:
     )
 
 # ---------- Header ----------
-st.title("Plataforma de Formación Estratégica para ASIPONA Veracruz")
+st.title("Plataforma de Formación Estratégica para ASIPONA ALTAMIRA")
 st.info(
     "Este demo muestra cómo una ASIPONA puede implementar un sistema inteligente de capacitación alineado a desempeño, indicadores y toma de decisiones."
 )
