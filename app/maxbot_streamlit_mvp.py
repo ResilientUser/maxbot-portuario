@@ -266,20 +266,14 @@ with st.form("maxbot_form"):
     if submitted:
         route = build_route(area, interest, level)
 
-if submitted:
-    route = build_route(area, interest, level)
+        if "Uso de indicadores" in diagnostico:
+            route.courses.insert(0, COURSE_CATALOG["Indicadores y desempeño"])
 
-    
-    if "Uso de indicadores" in diagnostico:
-        route.courses.insert(0, COURSE_CATALOG["Indicadores y desempeño"])
+        if "Toma de decisiones" in diagnostico:
+            route.courses.insert(0, COURSE_CATALOG["Toma de decisiones"])
 
-    if "Toma de decisiones" in diagnostico:
-        route.courses.insert(0, COURSE_CATALOG["Toma de decisiones"])
-
-    # Limitar a 3 cursos
-    route.courses = route.courses[:3]
-
-    st.session_state["route"] = route
+        # Limitar a 3 cursos
+        route.courses = route.courses[:3]
 
         st.session_state["route"] = route
         st.session_state["area"] = area
@@ -290,7 +284,8 @@ if submitted:
     st.markdown("### 2) Catálogo inicial de cursos")
     st.markdown(
         """
-- **KPIs portuarios alineados a UNCTAD + World Bank (CPPI)**  
+- **KPIs portuarios alineados a UNCTAD + World Bank (CPPI)**
+- **Metodolgía de Marco Lógico (MML)**
 - **Evaluación de proyectos portuarios y priorización estratégica**  
 - **Indicadores operativos aplicados a muelles, dragado, tiempos y eficiencia**  
 - **Marco regulatorio y gestión institucional portuaria**  
