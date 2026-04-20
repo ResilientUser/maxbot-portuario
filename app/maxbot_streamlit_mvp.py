@@ -210,13 +210,13 @@ with st.sidebar:
     )
 
 # ---------- Header ----------
-st.title("Plataforma de Formación Estratégica para ASIPONA ALTAMIRA")
+st.title("Plataforma de Formación Estratégica para ASIPONA Altamira")
 st.info(
-    "Este demo muestra cómo una ASIPONA puede implementar un sistema inteligente de capacitación alineado a desempeño, indicadores y toma de decisiones."
+    "Este demo muestra cómo ASIPONA Altamira puede implementar un sistema inteligente de capacitación alineado a desempeño operativo, indicadores estratégicos y toma de decisiones institucional."
 )
 st.subheader("Sistema Inteligente de Capacitación Institucional para puertos")
 st.write(
-    "Este demo muestra cómo una ASIPONA puede implementar un sistema real de capacitación inteligente, con impacto directo en desempeño institucional."
+    "Este demo muestra cómo ASIPONA Altamira puede implementar un sistema real de capacitación inteligente, con impacto directo en desempeño institucional y operación portuaria."
 )
 
 left, right = st.columns([1.1, 1])
@@ -236,8 +236,51 @@ with left:
         )
         submitted = st.form_submit_button("Generar recomendación", use_container_width=True)
 
+with st.form("maxbot_form"):
+    area = st.selectbox("¿Cuál es tu área principal dentro del puerto?", AREA_OPTIONS)
+    interest = st.selectbox("¿Qué te interesa fortalecer?", INTEREST_OPTIONS)
+    level = st.selectbox("¿Cuál consideras que es tu nivel actual?", LEVEL_OPTIONS)
+
+    employee_type = st.radio(
+        "Tipo de usuario",
+        ["Personal operativo", "Mando medio", "Directivo"],
+        horizontal=True,
+    )
+
+
+    st.markdown("#### Diagnóstico rápido de capacidades (simulación)")
+    diagnostico = st.multiselect(
+        "¿En qué áreas sientes mayor brecha actualmente?",
+        [
+            "Uso de indicadores",
+            "Toma de decisiones",
+            "Comprensión de operación portuaria",
+            "Uso de datos",
+            "Gestión institucional",
+        ]
+    )
+
+    submitted = st.form_submit_button("Generar recomendación", use_container_width=True)
+
+
     if submitted:
         route = build_route(area, interest, level)
+
+if submitted:
+    route = build_route(area, interest, level)
+
+    
+    if "Uso de indicadores" in diagnostico:
+        route.courses.insert(0, COURSE_CATALOG["Indicadores y desempeño"])
+
+    if "Toma de decisiones" in diagnostico:
+        route.courses.insert(0, COURSE_CATALOG["Toma de decisiones"])
+
+    # Limitar a 3 cursos
+    route.courses = route.courses[:3]
+
+    st.session_state["route"] = route
+
         st.session_state["route"] = route
         st.session_state["area"] = area
         st.session_state["interest"] = interest
@@ -259,6 +302,8 @@ with left:
 
 with right:
     st.markdown("### 3) Recomendación de MAXBOT")
+
+st.info("Ruta sugerida con enfoque en desempeño operativo y alineación a indicadores portuarios")
 
     if "route" not in st.session_state:
         st.info(
@@ -313,6 +358,20 @@ with right:
 
 
 st.divider()
+
+st.markdown("""
+### Sistema Inteligente de Capacitación Institucional para Altamira
+
+Este enfoque permite:
+
+- Alinear la capacitación con indicadores operativos reales del puerto  
+- Reducir curva de aprendizaje en temas clave (KPIs, operación, evaluación)  
+- Estandarizar criterios de toma de decisiones entre áreas  
+- Generar trazabilidad entre capacitación, desempeño y resultados  
+
+No es capacitación teórica: es una herramienta de gestión institucional.
+""")
+
 
 col_a, col_b = st.columns(2)
 
