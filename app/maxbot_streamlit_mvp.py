@@ -229,39 +229,26 @@ with left:
         area = st.selectbox("¿Cuál es tu área principal dentro del puerto?", AREA_OPTIONS)
         interest = st.selectbox("¿Qué te interesa fortalecer?", INTEREST_OPTIONS)
         level = st.selectbox("¿Cuál consideras que es tu nivel actual?", LEVEL_OPTIONS)
+
         employee_type = st.radio(
             "Tipo de usuario",
             ["Personal operativo", "Mando medio", "Directivo"],
             horizontal=True,
         )
+
+        st.markdown("#### Diagnóstico rápido de capacidades (simulación)")
+        diagnostico = st.multiselect(
+            "¿En qué áreas sientes mayor brecha actualmente?",
+            [
+                "Uso de indicadores",
+                "Toma de decisiones",
+                "Comprensión de operación portuaria",
+                "Uso de datos",
+                "Gestión institucional",
+            ]
+        )
+
         submitted = st.form_submit_button("Generar recomendación", use_container_width=True)
-
-with st.form("maxbot_form"):
-    area = st.selectbox("¿Cuál es tu área principal dentro del puerto?", AREA_OPTIONS)
-    interest = st.selectbox("¿Qué te interesa fortalecer?", INTEREST_OPTIONS)
-    level = st.selectbox("¿Cuál consideras que es tu nivel actual?", LEVEL_OPTIONS)
-
-    employee_type = st.radio(
-        "Tipo de usuario",
-        ["Personal operativo", "Mando medio", "Directivo"],
-        horizontal=True,
-    )
-
-
-    st.markdown("#### Diagnóstico rápido de capacidades (simulación)")
-    diagnostico = st.multiselect(
-        "¿En qué áreas sientes mayor brecha actualmente?",
-        [
-            "Uso de indicadores",
-            "Toma de decisiones",
-            "Comprensión de operación portuaria",
-            "Uso de datos",
-            "Gestión institucional",
-        ]
-    )
-
-    submitted = st.form_submit_button("Generar recomendación", use_container_width=True)
-
 
     if submitted:
         route = build_route(area, interest, level)
@@ -272,7 +259,6 @@ with st.form("maxbot_form"):
         if "Toma de decisiones" in diagnostico:
             route.courses.insert(0, COURSE_CATALOG["Toma de decisiones"])
 
-        # Limitar a 3 cursos
         route.courses = route.courses[:3]
 
         st.session_state["route"] = route
@@ -284,8 +270,8 @@ with st.form("maxbot_form"):
     st.markdown("### 2) Catálogo inicial de cursos")
     st.markdown(
         """
-- **KPIs portuarios alineados a UNCTAD + World Bank (CPPI)**
-- **Metodolgía de Marco Lógico (MML)**
+- **KPIs portuarios alineados a UNCTAD + World Bank (CPPI)**  
+- **Metodología de Marco Lógico (MML)**  
 - **Evaluación de proyectos portuarios y priorización estratégica**  
 - **Indicadores operativos aplicados a muelles, dragado, tiempos y eficiencia**  
 - **Marco regulatorio y gestión institucional portuaria**  
@@ -294,11 +280,9 @@ with st.form("maxbot_form"):
 """
     )
 
-
 with right:
     st.markdown("### 3) Recomendación de MAXBOT")
-
-st.info("Ruta sugerida con enfoque en desempeño operativo y alineación a indicadores portuarios")
+    st.info("Ruta sugerida con enfoque en desempeño operativo y alineación a indicadores portuarios")
 
     if "route" not in st.session_state:
         st.info(
@@ -318,7 +302,6 @@ st.info("Ruta sugerida con enfoque en desempeño operativo y alineación a indic
         st.markdown("#### Cursos recomendados")
         for i, course in enumerate(route.courses, start=1):
             st.markdown(f"**{i}.** {course}")
-
 
         st.markdown("#### Certificación asociada")
         certification_name = f"Certificación en {route.courses[0]}"
@@ -350,6 +333,8 @@ st.info("Ruta sugerida con enfoque en desempeño operativo y alineación a indic
 - Mejores insumos para **decisión y planeación institucional**
 """
         )
+
+
 
 
 st.divider()
