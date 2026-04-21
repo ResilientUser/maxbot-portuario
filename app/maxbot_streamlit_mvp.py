@@ -417,7 +417,7 @@ Salida:
 - Dashboard para RRHH  
 - Progreso de carrera  
 - Asistente conversacional con documentos internos  
-- Integración con web institucional
+
 """
     )
 
