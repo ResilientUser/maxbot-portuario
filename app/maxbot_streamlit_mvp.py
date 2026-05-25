@@ -1,3 +1,6 @@
+
+
+
 import streamlit as st
 from dataclasses import dataclass
 from typing import Dict, List
@@ -180,9 +183,9 @@ def build_route(area: str, interest: str, level: str) -> LearningRoute:
 # ---------- Sidebar ----------
 with st.sidebar:
     st.title("⚓ MAXBOT")
-    st.caption("MVP | Asistente Inteligente de Capacitación Portuaria")
+    st.caption("Plataforma Inteligente de Capacitación Portuaria")
     st.markdown("""
-**Propósito del MVP**
+**Propósito de la Plataforma Inteligente de Capacitación Portuaria**
 - Recomendar rutas de aprendizaje
 - Orientar por perfil y necesidad
 - Simular inteligencia institucional para RRHH
@@ -386,7 +389,7 @@ with col_a:
             st.markdown(f"- {item}")
 
 with col_b:
-    st.markdown("### 5) Lógica del sistema (MVP)")
+    st.markdown("### 5) Lógica del sistema (Plataforma Inteligente de Capacitación Portuaria)")
     st.code(
         """
 Entrada:
@@ -424,6 +427,5 @@ Salida:
 
 st.divider()
 st.caption(
-    "MAXBOT MVP | Demo conceptual para una Academia Portuaria Inteligente. "
-    "Este prototipo está diseñado para demostrar valor institucional antes del desarrollo completo de la plataforma."
-)
+    "MAXBOT Plataforma Inteligente de Capacitación Portuaria"
+   )
