@@ -185,7 +185,7 @@ with st.sidebar:
     st.title("⚓ MAXBOT")
     st.caption("Plataforma Inteligente de Capacitación Portuaria")
     st.markdown("""
-**Propósito de la Plataforma Inteligente de Capacitación Portuaria**
+**Capacidades Institucionales**
 - Recomendar rutas de aprendizaje
 - Orientar por perfil y necesidad
 - Simular inteligencia institucional para RRHH
@@ -215,11 +215,11 @@ with st.sidebar:
 # ---------- Header ----------
 st.title("Plataforma de Formación Estratégica para ASIPONA Veracruz")
 st.info(
-    "Este demo muestra cómo ASIPONA Veracruz puede implementar un sistema inteligente de capacitación alineado a desempeño operativo, indicadores estratégicos y toma de decisiones institucional."
+    "Esta plataforma permite a ASIPONA Veracruz fortalecer procesos de capacitación institucional alineados a desempeño operativo, indicadores estratégicos y toma de decisiones."
 )
-st.subheader("Sistema Inteligente de Capacitación Institucional para puertos")
+st.subheader("Plataforma Inteligente de Capacitación y Desempeño Institucional")
 st.write(
-    "Este demo muestra cómo ASIPONA Veracruz puede implementar un sistema real de capacitación inteligente, con impacto directo en desempeño institucional y operación portuaria."
+    "Esta plataforma permite a ASIPONA Veracruz fortalecer procesos de capacitación institucional alineados a desempeño operativo, indicadores estratégicos y toma de decisiones."
 )
 
 left, right = st.columns([1.1, 1])
@@ -343,7 +343,7 @@ with right:
 st.divider()
 
 st.markdown("""
-### Sistema Inteligente de Capacitación Institucional para Veracruz
+### Plataforma Inteligente de Capacitación y Desempeño Institucional
 
 Este enfoque permite:
 
@@ -389,7 +389,7 @@ with col_a:
             st.markdown(f"- {item}")
 
 with col_b:
-    st.markdown("### 5) Lógica del sistema (Plataforma Inteligente de Capacitación Portuaria)")
+    st.markdown("### 5) Lógica del sistema (Plataforma Inteligente de Capacitación y Desempeño Institucional)")
     st.code(
         """
 Entrada:
