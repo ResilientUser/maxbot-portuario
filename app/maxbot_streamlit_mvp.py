@@ -210,13 +210,13 @@ with st.sidebar:
     )
 
 # ---------- Header ----------
-st.title("Plataforma de Formación Estratégica para ASIPONA Altamira")
+st.title("Plataforma de Formación Estratégica para ASIPONA Veracruz")
 st.info(
-    "Este demo muestra cómo ASIPONA Altamira puede implementar un sistema inteligente de capacitación alineado a desempeño operativo, indicadores estratégicos y toma de decisiones institucional."
+    "Este demo muestra cómo ASIPONA Veracruz puede implementar un sistema inteligente de capacitación alineado a desempeño operativo, indicadores estratégicos y toma de decisiones institucional."
 )
 st.subheader("Sistema Inteligente de Capacitación Institucional para puertos")
 st.write(
-    "Este demo muestra cómo ASIPONA Altamira puede implementar un sistema real de capacitación inteligente, con impacto directo en desempeño institucional y operación portuaria."
+    "Este demo muestra cómo ASIPONA Veracruz puede implementar un sistema real de capacitación inteligente, con impacto directo en desempeño institucional y operación portuaria."
 )
 
 left, right = st.columns([1.1, 1])
@@ -340,7 +340,7 @@ with right:
 st.divider()
 
 st.markdown("""
-### Sistema Inteligente de Capacitación Institucional para Altamira
+### Sistema Inteligente de Capacitación Institucional para Veracruz
 
 Este enfoque permite:
 
